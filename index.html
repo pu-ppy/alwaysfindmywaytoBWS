@@ -299,14 +299,20 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 14px;
+      gap: 20px;
       padding: 0 0 32px;
-      background: transparent;
-      border: 0;
-      border-radius: 0;
-      box-shadow: none;
-      backdrop-filter: none;
-      -webkit-backdrop-filter: none;
+    }
+
+    /* 每張圖片各自保留原本半透明外框、圓角與陰影 */
+    .library-image-card {
+      width: 100%;
+      padding: 12px;
+      background: rgba(255, 255, 255, 0.42);
+      border: 1px solid rgba(220, 232, 240, 0.35);
+      border-radius: 18px;
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.25);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
     }
 
     .library-content-image {
@@ -385,15 +391,18 @@
       -webkit-overflow-scrolling: touch;
     }
 
+    #staff-video-screen.hidden {
+      display: none !important;
+    }
+
     .staff-list {
       width: 100%;
       max-width: 650px;
-      margin-top: auto;
-      margin-bottom: auto;
+      margin: 0 auto;
       font-size: 1.05rem;
-      line-height: 1.8;
+      line-height: 1.45;
       color: #fff;
-      margin-bottom: 20px;
+      margin-bottom: 0;
       text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
       opacity: 0;
       transform: translateY(40px);
@@ -425,14 +434,19 @@
 
     .staff-list p:nth-of-type(n + 2) {
       text-align: center;
-      margin-top: 8px;
+      margin-top: 4px;
+      margin-bottom: 0;
     }
 
     .staff-role {
       display: inline-block;
-      text-decoration: underline;
+      box-sizing: border-box;
+      text-decoration: none;
+      border-bottom: 3px solid currentColor;
       text-underline-offset: 3px;
-      margin-bottom: 2px;
+      margin-bottom: 1px;
+      padding-bottom: 1px;
+      white-space: nowrap;
     }
 
     .staff-list strong {
@@ -454,8 +468,7 @@
     .staff-video-stage {
       width: 100%;
       max-width: 800px;
-      margin-top: auto;
-      margin-bottom: auto;
+      margin: 0 auto;
       opacity: 0;
       transform: translateY(40px);
       transition: opacity 0.8s ease, transform 0.8s ease;
@@ -492,7 +505,8 @@
     }
 
     #back-from-staff-video-btn {
-      margin-top: 24px;
+      display: block;
+      margin: 24px auto 0;
       flex-shrink: 0;
     }
 
@@ -504,8 +518,8 @@
 
       .staff-list {
         font-size: 0.98rem;
-        line-height: 1.8;
-        margin-top: 0;
+        line-height: 1.4;
+        margin: 0 auto;
       }
 
       .staff-list h2,
@@ -514,7 +528,7 @@
       }
 
       .staff-video-stage {
-        margin-top: 0;
+        margin: 0 auto;
       }
     }
   </style>
@@ -586,9 +600,9 @@
   <!-- b2：上下滑動的圖片內容頁 -->
   <section id="library-content-screen" class="hidden" aria-label="生咖地址與應援小禮內容">
     <div class="library-content-inner">
-      <img src="pic1.webp" alt="生咖地址與應援小禮圖片一" class="library-content-image">
-      <img src="pic2.webp" alt="生咖地址與應援小禮圖片二" class="library-content-image">
-      <img src="pic3.webp" alt="生咖地址與應援小禮圖片三" class="library-content-image">
+      <div class="library-image-card"><img src="pic1.webp" alt="生咖地址與應援小禮圖片一" class="library-content-image"></div>
+      <div class="library-image-card"><img src="pic2.webp" alt="生咖地址與應援小禮圖片二" class="library-content-image"></div>
+      <div class="library-image-card"><img src="pic3.webp" alt="生咖地址與應援小禮圖片三" class="library-content-image"></div>
       <p class="content-disclaimer">
         <img src="ip.webp" alt="IP">
         <span>主辦方保有最終解釋權</span>
@@ -600,10 +614,10 @@
   <!-- b3：上下滑動的禮包與扭蛋圖片內容頁，只保留 gift1、gift2 -->
   <section id="gift-content-screen" class="hidden" aria-label="禮包與扭蛋內容">
     <div class="library-content-inner">
-      <img src="gift1.webp" alt="禮包與扭蛋圖片一" class="library-content-image gift-content-image">
-      <img src="gift2.webp" alt="禮包與扭蛋圖片二" class="library-content-image gift-content-image">
-      <img src="gift3.webp" alt="禮包與扭蛋圖片三" class="library-content-image gift-content-image">
-      <img src="gift4.webp" alt="禮包與扭蛋圖片四" class="library-content-image gift-content-image">
+      <div class="library-image-card"><img src="gift1.webp" alt="禮包與扭蛋圖片一" class="library-content-image gift-content-image"></div>
+      <div class="library-image-card"><img src="gift2.webp" alt="禮包與扭蛋圖片二" class="library-content-image gift-content-image"></div>
+      <div class="library-image-card"><img src="gift3.webp" alt="禮包與扭蛋圖片三" class="library-content-image gift-content-image"></div>
+      <div class="library-image-card"><img src="gift4.webp" alt="禮包與扭蛋圖片四" class="library-content-image gift-content-image"></div>
       <p class="content-disclaimer">
         <img src="ip.webp" alt="IP">
         <span>主辦方保有最終解釋權</span>
@@ -641,9 +655,8 @@
         allowfullscreen>
       </iframe>
       <p class="staff-video-hint">感謝每一位參與這段珍貴回憶的你。</p>
+      <button id="back-from-staff-video-btn" class="back-to-library-btn hidden" type="button">回到圖書館</button>
     </div>
-
-    <button id="back-from-staff-video-btn" class="back-to-library-btn hidden" type="button">回到圖書館</button>
   </section>
 
   <script>
@@ -674,6 +687,17 @@
     const memorialVideoUrl = '[https://www.youtube.com/embed/6uVhp_5INAg](https://www.youtube.com/embed/6uVhp_5INAg)';
     let staffVideoStep = 0;
     let staffTransitioning = false;
+
+    // 每個職務底線寬度與下一行名字一致，並在版面變化時重新計算。
+    function sizeStaffRoleUnderlines() {
+      staffList.querySelectorAll('p:nth-of-type(n + 2)').forEach((item) => {
+        const role = item.querySelector('.staff-role');
+        const name = item.querySelector('strong');
+        if (role && name) role.style.width = `${name.getBoundingClientRect().width}px`;
+      });
+    }
+    window.addEventListener('resize', sizeStaffRoleUnderlines);
+    sizeStaffRoleUnderlines();
 
     // 點擊 b2 開啟可滑動內容頁；背景音樂會繼續播放。
     b2Button.addEventListener('click', () => {
@@ -716,6 +740,7 @@
       staffVideoScreen.scrollTop = 0;
 
       staffList.classList.remove('hidden', 'slide-up');
+      sizeStaffRoleUnderlines();
       staffClickHint.classList.remove('show');
       staffVideoStage.classList.add('hidden');
       staffVideoStage.classList.remove('show');
