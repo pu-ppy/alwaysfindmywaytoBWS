@@ -249,8 +249,8 @@
     }
 
     #b2-menu-item {
-      left: 18%;
-      top: 42%;
+      left: 14%;
+      top: 38%;
       bottom: auto;
     }
 
@@ -267,6 +267,18 @@
       top: 69%;
       bottom: auto;
       cursor: pointer;
+      gap: 5px;
+    }
+
+    /* b4 的書本圖片獨立一行，文字放在圖片下方 */
+    #b4-menu-item .menu-item-label {
+      position: static;
+      left: auto;
+      bottom: auto;
+      transform: none;
+      font-size: 1rem;
+      line-height: 1.2;
+      white-space: nowrap;
     }
 
     .menu-img-btn {
@@ -520,6 +532,40 @@
       text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
     }
 
+    /* Instagram 與 Threads 圖片左右並排，文字各自放在圖片下方 */
+    .staff-social-links {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 24px;
+      margin: 18px auto 0;
+    }
+
+    .staff-social-card {
+      width: min(42%, 220px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: #fff;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      text-align: center;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+      overflow-wrap: anywhere;
+    }
+
+    .staff-social-image {
+      display: block;
+      width: 100%;
+      max-width: 160px;
+      height: auto;
+      object-fit: contain;
+      border-radius: 8px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+    }
+
     #back-from-staff-video-btn {
       display: block;
       margin: 24px auto 0;
@@ -553,7 +599,7 @@
   <!-- 1. Splash Screen 待機畫面 -->
   <div id="splash-screen">
     <div class="progress-container">
-      <div class="splash-title-text">筒筒's  Library</div>
+      <div class="splash-title-text">筒筒's Library</div>
       <div class="progress-track">
         <div id="progress-bar" class="progress-bar">
           <img src="finger.webp" alt="finger" class="finger-icon">
@@ -646,15 +692,15 @@
   <section id="staff-video-screen" class="hidden" aria-label="籌備人員名單與紀念影片">
     <div id="staff-list" class="staff-list">
       <h2>2026 邊佑錫台北生咖籌備人員名單</h2>
-      <p><strong>2026 邊佑錫台北生咖<br>由一起追邊邊粉絲團（Be with BWS forever）主辦</strong></p>
-      <p><span class="staff-role"><strong>總策劃與設計</span><br>@puppy11.17（蘇菲亞）</strong></p>
-      <p><span class="staff-role"><strong>採購</span><br>@cindy366813（Lin）、@elishia_hsu（芳芳）</strong></p>
-      <p><span class="staff-role"><strong>花藝與佈置</span><br>@mekomestarnflower（瑋玲）</strong></p>
-      <p><span class="staff-role"><strong>影片剪輯</span><br>@a771799（小燕）</strong></p>
-      <p><span class="staff-role"><strong>財務</span><br>@masakicheng（Yvonne）</strong></p>
-      <p><span class="staff-role"><strong>週邊提供</span><br>@0430amy（Amy）</strong></p>
-      <p><span class="staff-role"><strong>文書</span><br>@jilljup（Jill）</strong></p>
-      <p><span class="staff-role"><strong>巧手智囊團</span><br>@anneena0606（小庭）、@sammi.chen.1044（Sammi）、@ll.shih（小君）、@yi_lin07（真伊）、@peggy_nien（peggy）</strong></p>
+      <p>2026 邊佑錫台北生咖<br>由一起追邊邊粉絲團（Be with BWS forever）主辦</p>
+      <p><span class="staff-role">總策劃與設計</span><br><strong>@puppy11.17（蘇菲亞）</strong></p>
+      <p><span class="staff-role">採購</span><br><strong>@cindy366813（Lin）、@elishia_hsu（芳芳）</strong></p>
+      <p><span class="staff-role">花藝與佈置</span><br><strong>@mekomestarnflower（瑋玲）</strong></p>
+      <p><span class="staff-role">影片剪輯</span><br><strong>@a771799（小燕）</strong></p>
+      <p><span class="staff-role">財務</span><br><strong>@masakicheng（Yvonne）</strong></p>
+      <p><span class="staff-role">週邊提供</span><br><strong>@0430amy（Amy）</strong></p>
+      <p><span class="staff-role">文書</span><br><strong>@jilljup（Jill）</strong></p>
+      <p><span class="staff-role">巧手智囊團</span><br><strong>@anneena0606（小庭）、@sammi.chen.1044（Sammi）、@ll.shih（小君）、@yi_lin07（真伊）、@peggy_nien（peggy）</strong></p>
       <div id="staff-click-hint" class="staff-click-hint">✨ 點擊任意處繼續 ✨</div>
     </div>
 
@@ -671,6 +717,16 @@
         allowfullscreen>
       </iframe>
       <p class="staff-video-hint">感謝每一位參與這段珍貴回憶的你。</p>
+      <div class="staff-social-links" aria-label="粉絲團社群平台">
+        <div class="staff-social-card">
+          <img src="code1.webp" alt="一起追邊邊粉絲團 Instagram" class="staff-social-image">
+          <p>一起追邊邊粉絲團Instagram</p>
+        </div>
+        <div class="staff-social-card">
+          <img src="code2.webp" alt="一起追邊邊粉絲團 Threads" class="staff-social-image">
+          <p>一起追邊邊粉絲團Threads</p>
+        </div>
+      </div>
       <button id="back-from-staff-video-btn" class="back-to-library-btn hidden" type="button">回到圖書館</button>
     </div>
   </section>
@@ -700,7 +756,7 @@
     const staffVideoStage = document.getElementById('staff-video-stage');
     const staffVideoPlayer = document.getElementById('staff-video-player');
     const backFromStaffVideoButton = document.getElementById('back-from-staff-video-btn');
-    const memorialVideoUrl = '[https://youtu.be/6uVhp_5INAg?si=iJTkfXxKDTSiZB53](https://youtu.be/6uVhp_5INAg?si=iJTkfXxKDTSiZB53)';
+    const memorialVideoUrl = 'https://www.youtube.com/embed/6uVhp_5INAg?si=iJTkfXxKDTSiZB53';
     let staffVideoStep = 0;
     let staffTransitioning = false;
 
