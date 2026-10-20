@@ -271,15 +271,16 @@
   gap: 0px;
 }
 
-/* b4 的書本圖片獨立一行，文字放在圖片下方 */
+
 #b4-menu-item .menu-item-label {
   position: static;
   left: auto;
   bottom: auto;
-  transform: none;
+  transform: translateY(-6px);
   font-size: 1.4rem;
   line-height: 1.2;
   white-space: nowrap;
+  margin-top: -6px;
 }
 
 
@@ -364,20 +365,22 @@
 
     .content-disclaimer { margin-top: 0; }
 
-    .back-to-library-btn {
-      display: inline-block;
-      margin-top: 8px;
-      padding: 10px 22px;
-      border: 2px solid rgba(255, 255, 255, 0.85);
-      border-radius: 999px;
-      background: #ff758c;
-      color: #fff;
-      font-size: 1rem;
-      font-weight: bold;
-      cursor: pointer;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
-      transition: transform 0.2s ease, background 0.2s ease;
-    }
+    
+.back-to-library-btn {
+  display: inline-block;
+  margin-top: -10px;
+  padding: 10px 22px;
+  border: 2px solid rgba(255, 255, 255, 0.85);
+  border-radius: 999px;
+  background: #ff758c;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
 
     .content-disclaimer {
   width: 100%;
@@ -467,22 +470,27 @@
       margin-bottom: 0;
     }
 
-    .staff-role {
-      display: inline-block;
-      box-sizing: border-box;
-      text-decoration: none;
-      border-bottom: 1.5px solid currentColor;
-      text-underline-offset: 3px;
-      margin-bottom: 1px;
-      padding-bottom: 1px;
-      white-space: nowrap;
-    }
+    
+/* 職務文字與底線：白色 */
+.staff-role {
+  display: inline-block;
+  box-sizing: border-box;
+  color: #fff;
+  text-decoration: none;
+  border-bottom: 1.5px solid #fff;
+  text-underline-offset: 3px;
+  margin-bottom: 1px;
+  padding-bottom: 1px;
+  white-space: nowrap;
+}
 
-    .staff-list strong {
-      display: inline-block;
-      color: #addfff;
-      font-weight: bold;
-    }
+/* 名字：維持原本的藍色 */
+.staff-list strong {
+  display: inline-block;
+  color: #addfff;
+  font-weight: bold;
+}
+
 
     .staff-click-hint {
       margin-top: 22px;
@@ -766,16 +774,21 @@
     let staffVideoStep = 0;
     let staffTransitioning = false;
 
-    // 每個職務底線寬度與下一行名字一致，並在版面變化時重新計算。
-    function sizeStaffRoleUnderlines() {
-      staffList.querySelectorAll('p:nth-of-type(n + 2)').forEach((item) => {
-        const role = item.querySelector('.staff-role');
-        const name = item.querySelector('strong');
-        if (role && name) role.style.width = ${name.getBoundingClientRect().width}px;
-      });
+  
+function sizeStaffRoleUnderlines() {
+  staffList.querySelectorAll('p:nth-of-type(n + 2)').forEach((item) => {
+    const role = item.querySelector('.staff-role');
+    const name = role?.parentElement?.querySelector('br')?.nextElementSibling;
+
+    if (role && name) {
+      role.style.width = `${name.getBoundingClientRect().width}px`;
     }
-    window.addEventListener('resize', sizeStaffRoleUnderlines);
-    sizeStaffRoleUnderlines();
+  });
+}
+
+window.addEventListener('resize', sizeStaffRoleUnderlines);
+sizeStaffRoleUnderlines();
+
 
     // 點擊 b2 開啟可滑動內容頁；背景音樂會繼續播放。
     b2Button.addEventListener('click', () => {
