@@ -301,7 +301,7 @@
       align-items: center;
       gap: 10px;
       padding: 12px 12px 32px;
-      background: rgba(112, 164, 208, 0.42);
+      background: rgba(255, 255, 255, 0.42);
       border: 1px solid rgba(220, 232, 240, 0.35);
       border-radius: 18px;
       box-shadow: 0 8px 28px rgba(0, 0, 0, 0.25);
@@ -375,9 +375,9 @@
       background: rgba(10, 10, 20, 0.6);
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: center;
-      padding: 20px;
+      padding: 5vh 20px 24px;
       text-align: center;
       -webkit-overflow-scrolling: touch;
     }
@@ -399,6 +399,10 @@
     .staff-list.slide-up {
       opacity: 1;
       transform: translateY(0);
+    }
+
+    .staff-list strong {
+      color: #addfff;
     }
 
     .staff-list h2 {
@@ -480,7 +484,7 @@
       .staff-list {
         font-size: 0.98rem;
         line-height: 1.8;
-        margin-top: auto;
+        margin-top: 0;
       }
 
       .staff-list h2,
@@ -489,7 +493,7 @@
       }
 
       .staff-video-stage {
-        margin-top: auto;
+        margin-top: 0;
       }
     }
   </style>
@@ -591,9 +595,9 @@
   <section id="staff-video-screen" class="hidden" aria-label="籌備人員名單與紀念影片">
     <div id="staff-list" class="staff-list">
       <h2>2026 邊佑錫台北生咖籌備人員名單</h2>
-      <p>2026 邊佑錫台北生咖由一起追邊邊粉絲團（Be with BWS forever）主辦</p>
+      <p>2026 邊佑錫台北生咖<br>由一起追邊邊粉絲團（Be with BWS forever）主辦</p>
       <p>總策劃與設計：<strong>@puppy11.17（蘇菲亞）</strong></p>
-      <p>採購：<strong>@cindy366813（Lin）、@elishia_hsu（芳芳）</strong></p>
+      <p>採購：<strong>@cindy366813（Lin）、<br>@elishia_hsu（芳芳）</strong></p>
       <p>花藝與佈置：<strong>@mekomestarnflower（瑋玲）</strong></p>
       <p>影片剪輯：<strong>@a771799（小燕）</strong></p>
       <p>財務：<strong>@masakicheng（Yvonne）</strong></p>
@@ -646,7 +650,7 @@
     const staffVideoStage = document.getElementById('staff-video-stage');
     const staffVideoPlayer = document.getElementById('staff-video-player');
     const backFromStaffVideoButton = document.getElementById('back-from-staff-video-btn');
-    const memorialVideoUrl = 'https://www.youtube.com/embed/6uVhp_5INAg';
+    const memorialVideoUrl = '[https://www.youtube.com/embed/6uVhp_5INAg](https://www.youtube.com/embed/6uVhp_5INAg)';
     let staffVideoStep = 0;
     let staffTransitioning = false;
 
