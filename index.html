@@ -299,14 +299,14 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 10px;
-      padding: 12px 12px 32px;
-      background: rgba(255, 255, 255, 0.42);
-      border: 1px solid rgba(220, 232, 240, 0.35);
-      border-radius: 18px;
-      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.25);
-      backdrop-filter: blur(5px);
-      -webkit-backdrop-filter: blur(5px);
+      gap: 14px;
+      padding: 0 0 32px;
+      background: transparent;
+      border: 0;
+      border-radius: 0;
+      box-shadow: none;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
     }
 
     .library-content-image {
@@ -323,6 +323,9 @@
       width: 100%;
       max-width: 100%;
       height: auto;
+      object-fit: contain;
+      border-radius: 8px;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
     }
 
     .content-disclaimer { margin-top: 0; }
@@ -375,9 +378,9 @@
       background: rgba(10, 10, 20, 0.6);
       display: flex;
       flex-direction: column;
-      justify-content: flex-start;
+      justify-content: center;
       align-items: center;
-      padding: 5vh 20px 24px;
+      padding: 24px 20px;
       text-align: center;
       -webkit-overflow-scrolling: touch;
     }
@@ -385,6 +388,8 @@
     .staff-list {
       width: 100%;
       max-width: 650px;
+      margin-top: auto;
+      margin-bottom: auto;
       font-size: 1.05rem;
       line-height: 1.8;
       color: #fff;
@@ -419,7 +424,21 @@
     }
 
     .staff-list p:nth-of-type(n + 2) {
-      text-align: left;
+      text-align: center;
+      margin-top: 8px;
+    }
+
+    .staff-role {
+      display: inline-block;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      margin-bottom: 2px;
+    }
+
+    .staff-list strong {
+      display: inline-block;
+      color: #addfff;
+      font-weight: bold;
     }
 
     .staff-click-hint {
@@ -435,6 +454,8 @@
     .staff-video-stage {
       width: 100%;
       max-width: 800px;
+      margin-top: auto;
+      margin-bottom: auto;
       opacity: 0;
       transform: translateY(40px);
       transition: opacity 0.8s ease, transform 0.8s ease;
@@ -477,7 +498,7 @@
 
     @media (max-width: 480px) {
       #staff-video-screen {
-        justify-content: flex-start;
+        justify-content: center;
         padding: 24px 16px;
       }
 
@@ -596,14 +617,14 @@
     <div id="staff-list" class="staff-list">
       <h2>2026 邊佑錫台北生咖籌備人員名單</h2>
       <p>2026 邊佑錫台北生咖<br>由一起追邊邊粉絲團（Be with BWS forever）主辦</p>
-      <p>總策劃與設計<strong>@puppy11.17（蘇菲亞）</strong></p>
-      <p>採購<strong>@cindy366813（Lin）、@elishia_hsu（芳芳）</strong></p>
-      <p>花藝與佈置<strong>@mekomestarnflower（瑋玲）</strong></p>
-      <p>影片剪輯<strong>@a771799（小燕）</strong></p>
-      <p>財務<strong>@masakicheng（Yvonne）</strong></p>
-      <p>週邊提供<strong>@0430amy（Amy）</strong></p>
-      <p>文書<strong>@jilljup（Jill）</strong></p>
-      <p>巧手智囊團<strong>@anneena0606（小庭）、@sammi.chen.1044（Sammi）、@ll.shih（小君）、@yi_lin07（真伊）、@peggy_nien（peggy）</strong></p>
+      <p><span class="staff-role">總策劃與設計</span><br><strong>@puppy11.17（蘇菲亞）</strong></p>
+      <p><span class="staff-role">採購</span><br><strong>@cindy366813（Lin）、@elishia_hsu（芳芳）</strong></p>
+      <p><span class="staff-role">花藝與佈置</span><br><strong>@mekomestarnflower（瑋玲）</strong></p>
+      <p><span class="staff-role">影片剪輯</span><br><strong>@a771799（小燕）</strong></p>
+      <p><span class="staff-role">財務</span><br><strong>@masakicheng（Yvonne）</strong></p>
+      <p><span class="staff-role">週邊提供</span><br><strong>@0430amy（Amy）</strong></p>
+      <p><span class="staff-role">文書</span><br><strong>@jilljup（Jill）</strong></p>
+      <p><span class="staff-role">巧手智囊團</span><br><strong>@anneena0606（小庭）、@sammi.chen.1044（Sammi）、@ll.shih（小君）、@yi_lin07（真伊）、@peggy_nien（peggy）</strong></p>
       <div id="staff-click-hint" class="staff-click-hint">✨ 點擊任意處繼續 ✨</div>
     </div>
 
