@@ -64,7 +64,7 @@
       font-weight: bold;
       color: #ff2a74;
       margin-bottom: 20px;
-      text-shadow: none;
+      text-shadow: 0 0 15px rgba(255, 42, 116, 0.9), 0 2px 5px rgba(0,0,0,0.8);
       letter-spacing: 2px;
       white-space: nowrap;
     }
@@ -124,20 +124,6 @@
     }
 
     .splash-click-hint.show { opacity: 1; }
-
-    /* 音量提醒疊在進度條中央 */
-    #splash-volume-hint {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      margin-top: 0;
-      color: #fff;
-      font-weight: bold;
-      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
-      z-index: 5;
-      pointer-events: none;
-    }
 
     /* 2. 介紹文字畫面 */
     #intro-screen {
@@ -250,7 +236,7 @@
 
     #b2-menu-item {
       left: 14%;
-      top: 38%;
+      top: 39%;
       bottom: auto;
     }
 
@@ -261,27 +247,24 @@
       bottom: 16%;
     }
 
-    
-/* b4：放在 b2 下方，整體往上移動 */
-#b4-menu-item {
-  left: 8%;
-  top: 65%;
-  bottom: auto;
-  cursor: pointer;
-  gap: 0px;
-}
+    /* b4：放在 b2 下方 */
+    #b4-menu-item {
+      left: 8%;
+      top: 69%;
+      bottom: auto;
+      cursor: pointer;
+    }
 
-/* b4 的書本圖片獨立一行，文字放在圖片下方 */
-#b4-menu-item .menu-item-label {
-  position: static;
-  left: auto;
-  bottom: auto;
-  transform: none;
-  font-size: 1.4rem;
-  line-height: 1.2;
-  white-space: nowrap;
-}
-
+    /* B4：書本圖片下方另起一行顯示文字 */
+    #b4-menu-item .menu-item-label {
+      position: static;
+      left: auto;
+      bottom: auto;
+      transform: none;
+      margin-top: -4px;
+      line-height: 1.2;
+      white-space: normal;
+    }
 
     .menu-img-btn {
       width: 128px;
@@ -366,7 +349,7 @@
 
     .back-to-library-btn {
       display: inline-block;
-      margin-top: 8px;
+      margin-top: -10px;
       padding: 10px 22px;
       border: 2px solid rgba(255, 255, 255, 0.85);
       border-radius: 999px;
@@ -380,29 +363,28 @@
     }
 
     .content-disclaimer {
-  width: 100%;
-  text-align: center;
-  color: rgba(255, 255, 255, 0.92);
-  font-size: 0.95rem;
-  line-height: 1.6;
-  font-weight: bold;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.65);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0;
-  flex-wrap: wrap;
-}
+      width: 100%;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.92);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.65);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2px;
+      flex-wrap: wrap;
+    }
 
-.content-disclaimer img {
-  display: inline-block;
-  width: 100px;
-  max-width: none;
-  max-height: none;
-  height: auto;
-  object-fit: contain;
-  vertical-align: middle;
-}
+    .content-disclaimer img {
+      display: inline-block;
+      width: 84px;
+      max-height: 56px;
+      height: auto;
+      object-fit: contain;
+      vertical-align: middle;
+    }
+
     /* B4：籌備名單與紀念影片，沿用 intro-screen 的顯示效果 */
     #staff-video-screen {
       position: fixed;
@@ -463,21 +445,23 @@
 
     .staff-list p:nth-of-type(n + 2) {
       text-align: center;
-      margin-top: 12px;
+      margin-top: 4px;
       margin-bottom: 0;
     }
 
     .staff-role {
       display: inline-block;
       box-sizing: border-box;
+      color: #fff;
       text-decoration: none;
-      border-bottom: 1.5px solid currentColor;
+      border-bottom: 1.5px solid #fff;
       text-underline-offset: 3px;
       margin-bottom: 1px;
       padding-bottom: 1px;
       white-space: nowrap;
     }
 
+    /* 職務文字維持白色；職務下方的名字維持淺藍色 */
     .staff-list strong {
       display: inline-block;
       color: #addfff;
@@ -508,14 +492,12 @@
       transform: translateY(0);
     }
 
-   
-.staff-video-title {
-  font-size: 1.8rem;
-  color: #ffb6c5;
-  margin-bottom: 18px;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
-}
-
+    .staff-video-title {
+      font-size: 1.5rem;
+      color: #ffb6c5;
+      margin-bottom: 18px;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+    }
 
     .staff-video-player {
       display: block;
@@ -527,49 +509,31 @@
       box-shadow: 0 4px 22px rgba(0, 0, 0, 0.5);
     }
 
-    
-.staff-video-hint {
-  margin-top: 16px;
-  font-size: 1.15rem;
-  line-height: 1.8;
-  color: #ffd5df;
-  font-weight: bold;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
-}
+    .staff-video-hint {
+      margin-top: 16px;
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: #ffd5df;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+    }
 
-
-    /* Instagram 與 Threads 圖片左右並排，文字各自放在圖片下方 */
-    .staff-social-links {
-      width: 100%;
+    .staff-code-images {
       display: flex;
+      flex-direction: row;
+      align-items: center;
       justify-content: center;
-      align-items: flex-start;
-      gap: 24px;
+      gap: 14px;
+      width: 100%;
       margin: 18px auto 0;
     }
 
-    .staff-social-card {
-      width: min(42%, 220px);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
-      color: #fff;
-      font-size: 0.9rem;
-      line-height: 1.5;
-      text-align: center;
-      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
-      overflow-wrap: anywhere;
-    }
-
-    .staff-social-image {
+    .staff-code-images img {
       display: block;
-      width: 100%;
-      max-width: 160px;
+      width: calc(50% - 7px);
+      max-width: 280px;
       height: auto;
       object-fit: contain;
       border-radius: 8px;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
     }
 
     #back-from-staff-video-btn {
@@ -610,9 +574,9 @@
         <div id="progress-bar" class="progress-bar">
           <img src="finger.webp" alt="finger" class="finger-icon">
         </div>
-        <div id="splash-volume-hint" class="splash-click-hint">記得開啟音量鍵哦</div>
       </div>
       <div id="splash-click-hint" class="splash-click-hint">✨ 點擊任意處繼續 ✨</div>
+      <div id="splash-volume-hint" class="splash-click-hint">記得開啟音量鍵哦</div>
     </div>
   </div>
 
@@ -699,14 +663,14 @@
     <div id="staff-list" class="staff-list">
       <h2>2026 邊佑錫台北生咖籌備人員名單</h2>
       <p>2026 邊佑錫台北生咖<br>由一起追邊邊粉絲團（Be with BWS forever）主辦</p>
-      <p><span class="staff-role"><strong>總策劃與設計</strong></span><br><strong>@puppy11.17（蘇菲亞）</strong></p>
-      <p><span class="staff-role"><strong>採購</strong></span><br><strong>@cindy366813（Lin）、@elishia_hsu（芳芳）</strong></p>
-      <p><span class="staff-role"><strong>花藝與佈置</strong></span><br><strong>@mekomestarnflower（瑋玲）</strong></p>
-      <p><span class="staff-role"><strong>影片剪輯</strong></span><br><strong>@a771799（小燕）</strong></p>
-      <p><span class="staff-role"><strong>財務</strong></span><br><strong>@masakicheng（Yvonne）</strong></p>
-      <p><span class="staff-role"><strong>週邊提供</strong></span><br><strong>@0430amy（Amy）</strong></p>
-      <p><span class="staff-role"><strong>文書</strong></span><br><strong>@jilljup（Jill）</strong></p>
-      <p><span class="staff-role"><strong>巧手智囊團</strong></span><br><strong>@anneena0606（小庭）、@sammi.chen.1044（Sammi）、@ll.shih（小君）、@yi_lin07（真伊）、@peggy_nien（peggy）</strong></p>
+      <p><span class="staff-role">總策劃與設計</span><br><strong>@puppy11.17（蘇菲亞）</strong></p>
+      <p><span class="staff-role">採購</span><br><strong>@cindy366813（Lin）、@elishia_hsu（芳芳）</strong></p>
+      <p><span class="staff-role">花藝與佈置</span><br><strong>@mekomestarnflower（瑋玲）</strong></p>
+      <p><span class="staff-role">影片剪輯</span><br><strong>@a771799（小燕）</strong></p>
+      <p><span class="staff-role">財務</span><br><strong>@masakicheng（Yvonne）</strong></p>
+      <p><span class="staff-role">週邊提供</span><br><strong>@0430amy（Amy）</strong></p>
+      <p><span class="staff-role">文書</span><br><strong>@jilljup（Jill）</strong></p>
+      <p><span class="staff-role">巧手智囊團</span><br><strong>@anneena0606（小庭）、@sammi.chen.1044（Sammi）、@ll.shih（小君）、@yi_lin07（真伊）、@peggy_nien（peggy）</strong></p>
       <div id="staff-click-hint" class="staff-click-hint">✨ 點擊任意處繼續 ✨</div>
     </div>
 
@@ -723,15 +687,9 @@
         allowfullscreen>
       </iframe>
       <p class="staff-video-hint">感謝每一位參與這段珍貴回憶的你。</p>
-      <div class="staff-social-links" aria-label="粉絲團社群平台">
-        <div class="staff-social-card">
-          <img src="code1.webp" alt="一起追邊邊粉絲團 Instagram" class="staff-social-image">
-          <p>一起追邊邊粉絲團Instagram</p>
-        </div>
-        <div class="staff-social-card">
-          <img src="code2.webp" alt="一起追邊邊粉絲團 Threads" class="staff-social-image">
-          <p>一起追邊邊粉絲團Threads</p>
-        </div>
+      <div class="staff-code-images">
+        <img src="code1.webp" alt="紀念圖片一">
+        <img src="code2.webp" alt="紀念圖片二">
       </div>
       <button id="back-from-staff-video-btn" class="back-to-library-btn hidden" type="button">回到圖書館</button>
     </div>
@@ -762,7 +720,7 @@
     const staffVideoStage = document.getElementById('staff-video-stage');
     const staffVideoPlayer = document.getElementById('staff-video-player');
     const backFromStaffVideoButton = document.getElementById('back-from-staff-video-btn');
-    const memorialVideoUrl = 'https://www.youtube.com/embed/6uVhp_5INAg?si=iJTkfXxKDTSiZB53';
+    const memorialVideoUrl = 'https://www.youtube.com/embed/6uVhp_5INAg';
     let staffVideoStep = 0;
     let staffTransitioning = false;
 
@@ -770,8 +728,11 @@
     function sizeStaffRoleUnderlines() {
       staffList.querySelectorAll('p:nth-of-type(n + 2)').forEach((item) => {
         const role = item.querySelector('.staff-role');
-        const name = item.querySelector('strong');
-        if (role && name) role.style.width = `${name.getBoundingClientRect().width}px`;
+        // 職務後的 br + strong 才是名字，不能抓到其他 strong。
+        const name = item.querySelector('br + strong');
+        if (role && name) {
+          role.style.width = `${name.getBoundingClientRect().width}px`;
+        }
       });
     }
     window.addEventListener('resize', sizeStaffRoleUnderlines);
