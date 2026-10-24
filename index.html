@@ -901,6 +901,32 @@ sizeStaffRoleUnderlines();
 
     mainBgm.volume = 0.5;
 
+    // 從 game1.html 返回時，直接顯示主選單
+window.addEventListener('DOMContentLoaded', () => {
+  const params = new URLSearchParams(window.location.search);
+
+  if (params.get('from') === 'game') {
+    document.getElementById('splash-screen')?.classList.add('fade-out');
+    document.getElementById('intro-screen')?.classList.add('hidden');
+
+    const mainMenu = document.getElementById('main-menu');
+
+    if (mainMenu) {
+      mainMenu.classList.add('pop-up');
+    }
+
+    const mainBgm = document.getElementById('main-bgm');
+
+    if (mainBgm) {
+      mainBgm.volume = 0.5;
+      mainBgm.play().catch(() => {});
+    }
+
+    // 清除網址參數，避免重新整理時再次觸發
+    window.history.replaceState({}, document.title, 'index.html');
+  }
+});
+
     // 解除瀏覽器自動播放限制
     function initAudio() {
       mainBgm.play().then(() => {
