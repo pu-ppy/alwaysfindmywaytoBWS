@@ -267,20 +267,19 @@
     #btn-right:active { transform: scale(0.92); }
 
     .jump-btn {
-      width: 132px;
-      height: 132px;
-      object-fit: contain;
-      cursor: pointer;
-      opacity: 0.75;
-      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
-      transition: opacity 0.2s;
-    }
+  width: 132px;
+  height: 132px;
+  object-fit: contain;
+  cursor: pointer;
+  opacity: 0.75;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+  transition: opacity 0.2s, transform 0.2s;
+}
 
-    .jump-btn:active {
-      opacity: 0.95;
-      transform: translateY(-50%) scale(0.92);
-    }
-
+.jump-btn:active {
+  opacity: 0.95;
+  transform: scale(1.08);
+}
     #event-modal {
       position: relative;
       background: rgba(250, 245, 240, 0.98);
