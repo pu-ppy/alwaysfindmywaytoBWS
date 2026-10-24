@@ -779,24 +779,9 @@
       gameState = 'PLAYING';
     });
 
-    document.getElementById('back-library-btn').addEventListener('click', () => {
-      if (window.parent && window.parent !== window) {
-        if (typeof window.parent.backToLibrary === 'function') {
-          window.parent.backToLibrary();
-          return;
-        }
-        if (window.parent.history.length > 1) {
-          window.parent.history.back();
-          return;
-        }
-      }
-
-      if (window.history.length > 1) {
-        window.history.back();
-      } else {
-        window.location.href = 'index.html';
-      }
-    });
+document.getElementById('back-library-btn').addEventListener('click', () => {
+  window.location.href = 'index.html?from=game';
+});
 
     function updateScoreDisplay() {
       totalScoreEl.innerText = totalScore.toLocaleString();
